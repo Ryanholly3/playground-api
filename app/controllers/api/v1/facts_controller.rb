@@ -1,4 +1,4 @@
-class Api::V1::FactsController < ApplicationController
+class Api::V1::FactsController < SecuredController
   before_action :find_fact, only: [:show, :update, :destroy]
 
     # GET /facts
