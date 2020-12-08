@@ -8,7 +8,7 @@ class JsonWebToken
                algorithm: 'RS256',
                iss: 'https://lit-spire-32222', # domain
                verify_iss: true,
-               aud: 'https://dev-zcws25jd.us.auth0.com/oauth/token/', # api_identifier
+               aud: 'https://dev-zcws25jd.us.auth0.com/', # api_identifier
                verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
