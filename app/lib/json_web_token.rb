@@ -6,7 +6,7 @@ class JsonWebToken
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
-               iss: 'https://lit-spire-32222.herokuapp.com/', # domain
+               iss: 'https://test-api', # domain
                verify_iss: true,
                aud: 'https://dev-zcws25jd.us.auth0.com/oauth/token/', # api_identifier
                verify_aud: true) do |header|
@@ -15,7 +15,7 @@ class JsonWebToken
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("#{'https://lit-spire-32222.herokuapp.com/'}.well-known/jwks.json")
+    jwks_raw = Net::HTTP.get URI("https://test-api.well-known/jwks.json")
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
